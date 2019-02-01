@@ -17,7 +17,9 @@ const { getMarginObject } = require('./helpers');
  * @returns an object containing the PDF's filename if it was written successfully
  */
 module.exports = async (mdFile, config, port, args = {}) => {
-	const mdFileContent = await readFile(path.resolve(mdFile), args['--md-file-encoding'] || config.md_file_encoding);
+	let mdFileContent = await readFile(path.resolve(mdFile), args['--md-file-encoding'] || config.md_file_encoding);
+	
+	config.replaceText.forEach(replacement => mdFileContent = mdFileContent.replace(...replacement))
 
 	const { content: md, data: frontMatterConfig } = grayMatter(mdFileContent);
 

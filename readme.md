@@ -62,6 +62,7 @@ Options:
   --config-file ............ Path to a JSON or JS configuration file
   --devtools ............... Open the browser with devtools instead of creating PDF
   --debug .................. Show more output on errors
+  TODO replaceText array
 ```
 
 If no arguments are given, all markdown files in the current directory will be converted. Otherwise, the first argument is `path/to/file.md` and the second one optionally specifies the `path/to/output.pdf`. If you omit the second argument, it will derive the pdf name from the markdown filename and save it into the same directory that contains the markdown file. Run `md2pdf --help` for examples on how to use the cli options.
